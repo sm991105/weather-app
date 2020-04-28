@@ -28,15 +28,15 @@ const forcast = (latitude, longitude, callback) => {
     "," +
     longitude;
 
-  request({ url: url, json: true }, (err, response) => {
+  request({ url, json: true }, (err, { body }) => {
     if (err) {
       callback("Unable to connect to weather services.");
-    } else if (response.body.success === false) {
-      callback(response.body.error.info);
+    } else if (body.success === false) {
+      callback(body.error.info);
     } else {
-      const temp = response.body.current.temperature;
-      const tempFeels = response.body.current.feelslike;
-      const description = response.body.current.weather_descriptions[0];
+      const temp = body.current.temperature;
+      const tempFeels = body.current.feelslike;
+      const description = body.current.weather_descriptions[0];
       const string =
         description +
         ".\nIt is currently " +

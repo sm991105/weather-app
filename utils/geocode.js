@@ -24,16 +24,16 @@ const geocode = (address, callback) => {
     encodeURIComponent(address) +
     ".json?access_token=pk.eyJ1Ijoic205OTExMDUiLCJhIjoiY2s5ampsOHJoMWtxbTNlbndhcW02Z3djeSJ9.8gEY7YDkT59rHj7mkQ97Lw";
 
-  request({ url: url, json: true }, (err, response) => {
+  request({ url: url, json: true }, (err, { body }) => {
     if (err) {
       callback("Unable to connect to location services.", undefined);
-    } else if (response.body.features.length === 0) {
+    } else if (body.features.length === 0) {
       callback("Location not found.", undefined);
     } else {
       callback(undefined, {
-        longitude: response.body.features[0].center[0],
-        latitude: response.body.features[0].center[1],
-        placeName: response.body.features[0].place_name,
+        longitude: body.features[0].center[0],
+        latitude: body.features[0].center[1],
+        placeName: body.features[0].place_name,
       });
     }
   });
