@@ -47,6 +47,23 @@ app.get("/weather", (req, res) => {
   });
 });
 
+app.get("/help/*", (req, res) => {
+  res.render("404", {
+    title: "404",
+    name: "Joody Moody",
+    errMsg: "Help article not found",
+  });
+});
+
+app.get("*", (req, res) => {
+  // wildcard!
+  res.render("404", {
+    title: "404",
+    name: "Joody Moody",
+    errMsg: "Page not found.",
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server is up on port ${port}.`);
 });
