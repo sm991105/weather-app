@@ -39,7 +39,7 @@ const forcast = (latitude, longitude, callback) => {
       const description = body.current.weather_descriptions[0];
       const string =
         description +
-        ".\nIt is currently " +
+        ". It is currently " +
         temp +
         " degrees out. It feels like " +
         tempFeels +

@@ -1,5 +1,4 @@
 const request = require("request");
-
 // Synchronous way, just for demonstration purposes
 /*
 const GeoUrl =
