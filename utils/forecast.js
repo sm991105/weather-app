@@ -37,13 +37,17 @@ const forcast = (latitude, longitude, callback) => {
       const temp = body.current.temperature;
       const tempFeels = body.current.feelslike;
       const description = body.current.weather_descriptions[0];
+      const humidity = body.current.humidity;
       const string =
         description +
         ". It is currently " +
         temp +
         " degrees out. It feels like " +
         tempFeels +
-        " degrees out.";
+        " degrees out, Humidity of " +
+        humidity +
+        "%.";
+      console.log(body);
       callback(undefined, string);
     }
   });
