@@ -45,6 +45,12 @@ header a {
   color: azure;
   background-color: #333333;
 }
+.account {
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: rgb(113, 161, 161);
+}
 
 input {
   border: 1px solid #cccccc;
